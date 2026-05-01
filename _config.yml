@@ -2,7 +2,7 @@ title: Home
 email: amarisdeep@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   i code
-baseurl: "/banana"
+baseurl: "/Banana"
 url: "https://amarisdeep.github.io"
 github_username:  amarisdeep
 data_dir: assets/data
