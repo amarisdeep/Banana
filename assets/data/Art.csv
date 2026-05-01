@@ -1,0 +1,4 @@
+id,title,artist,collection,price,stock,image_url,desc
+A001,Sunset Geometry,Amardeep,Abstract,120,5,"/assets/img/samp0.png, /assets/img/samp1.png",Modern abstract piece.
+A002,Neon Dreams,Amardeep,Cyberpunk,85,0,"/assets/img/samp1.png, /assets/img/samp0.png",Cyberpunk digital art.
+A003,Blue Mist,Amardeep,Abstract,95,2,"/assets/img/samp0.png, /assets/img/samp1.png",Soft blue tones.

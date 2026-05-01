@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | Art Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="icon" href="/assets/img/logo.png" type="image/x-icon">
+    {% seo %}
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="/">BANANA</a></li>
+                <li>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                        <ul id="search-results-list" class="search-results"></ul>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Collections ▾</a>
+                    <ul class="dropdown-menu">
+                        {% assign collections = site.data.Art | map: 'collection' | uniq %}
+                        {% for col in collections %}
+                        <li><a href="/collection/?collection={{ col | slugify }}">{{ col }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        {{ content }}
+    </main>
+
+    <!-- Data source for the Search Engine -->
+    <!-- Updated data-url to split by comma (,) instead of pipe (|) -->
+    <div id="art-data-source" style="display: none;">
+        {% for item in site.data.Art %}
+        <div class="search-item" 
+             data-title="{{ item.title | downcase }}" 
+             data-collection="{{ item.collection | downcase }}"
+             data-url="{{ item.image_url | split: ',' | first | strip }}">
+            <span class="s-title">{{ item.title }}</span>
+            <span class="s-col">in {{ item.collection }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>        
+        <div class="footer-links">
+            <a class="linkhai" href="/">Instagram</a>
+            <a class="linkhai" href="/">Behance</a>
+        </div>
+        <p class="copyright">© <script>document.write(new Date().getFullYear())</script>Banana Arts</p> 
+        <p class="credit">Made By <a class="linkhai" href="https://amarisdeep.github.io">Amardeep</a></p>
+    </footer>
+
+    <script>
+        // --- Cart Counter Update ---
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('art_cart')) || [];
+            const cartSpan = document.getElementById('cart-count');
+            if (cartSpan) cartSpan.innerText = cart.length;
+        }
+
+        // --- Search Logic ---
+        const searchInput = document.getElementById('search-input');
+        const resultsList = document.getElementById('search-results-list');
+        const sourceItems = document.querySelectorAll('.search-item');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            resultsList.innerHTML = '';
+            if (query.length < 1) { resultsList.style.display = 'none'; return; }
+
+            let hasResults = false;
+            sourceItems.forEach(item => {
+                const title = item.getAttribute('data-title');
+                const collection = item.getAttribute('data-collection');
+                if (title.includes(query) || collection.includes(query)) {
+                    const li = document.createElement('li');
+                    
+                    // Format title for the artwork detail page URL
+                    const formattedTitle = title.replace(/\s+/g, '-').toLowerCase();
+                    
+                    // FIXED: Redirects to /artwork/ (detail) instead of /collection/ (list)
+                    li.innerHTML = `<a href="/artwork/?title=${formattedTitle}">${item.innerHTML}</a>`;
+                    resultsList.appendChild(li);
+                    hasResults = true;
+                }
+            });
+            resultsList.style.display = hasResults ? 'block' : 'none';
+        });
+
+        // Initialize on Load
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+        
+        // Close search when clicking away
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                resultsList.style.display = 'none';
+            }
+        });
+        
+        // Update count if storage changes in another tab
+        window.addEventListener('storage', updateCartCount);
+    </script>
+</body>
+</html>
