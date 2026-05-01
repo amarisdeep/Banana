@@ -176,7 +176,7 @@ icon: "/Banana/assets/img/logo.jpg"
       {% assign url_title = item.title | slugify %}
       {% assign first_image = item.image_url | split: ',' | first | strip %}
       
-      <a href="/artwork/?title={{ url_title }}" class="art-card">
+      <a href="/Banana/artwork/?title={{ url_title }}" class="art-card">
         <div class="card-img-wrapper">
           <img src="{{ first_image }}" alt="{{ item.title }}">
         </div>
@@ -195,7 +195,7 @@ icon: "/Banana/assets/img/logo.jpg"
       {% assign url_title = item.title | slugify %}
       {% assign first_image = item.image_url | split: ',' | first | strip %}
       
-      <a href="/artwork/?title={{ url_title }}" class="art-card">
+      <a href="/Banana/artwork/?title={{ url_title }}" class="art-card">
         <div class="card-img-wrapper">
           <img src="{{ first_image }}" alt="{{ item.title }}">
         </div>
