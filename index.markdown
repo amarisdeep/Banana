@@ -1,6 +1,6 @@
 ---
 title: "Home"
-permalink: /Banana
+permalink: /
 layout: home
 icon: "/Banana/assets/img/logo.jpg"
 ---

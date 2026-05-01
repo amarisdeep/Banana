@@ -1,6 +1,6 @@
 ---
 layout: home
-permalink: /Banana/artwork/
+permalink: /artwork/
 ---
 
 <style>
