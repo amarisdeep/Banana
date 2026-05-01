@@ -6,7 +6,7 @@ permalink: /artwork/
 <style>
   /* --- Professional Stage Layout --- */
   .artwork-stage {
-    padding: 140px 20px 80px;
+    padding: 0px 20px 80px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;

@@ -9,7 +9,7 @@ permalink: /collection/
     max-width: 1000px;
     margin: 0 auto;
     /* Added 140px padding to clear the fixed header */
-    padding: 140px 20px 60px; 
+    padding: 0px 20px 60px; 
   }
 
   .collection-title-section {

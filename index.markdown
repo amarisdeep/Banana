@@ -7,7 +7,7 @@ icon: "/Banana/assets/img/logo.jpg"
 
 <style>
   .home-container {
-    padding: 140px 20px 60px;
+    padding: 5px 20px 60px;
     max-width: 1200px;
     margin: 0 auto;
   }
