@@ -2,7 +2,7 @@
 title: "Home"
 permalink: /
 layout: home
-icon: "assets/img/logo.jpg"
+icon: "/Banana/assets/img/logo.jpg"
 ---
 
 <style>

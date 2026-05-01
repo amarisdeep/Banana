@@ -1,6 +1,6 @@
 ---
 layout: home
-permalink: /collection/
+permalink: /Banana/collection/
 ---
 
 <style>

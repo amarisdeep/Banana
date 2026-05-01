@@ -1,7 +1,7 @@
 ---
 layout: home
 title: "Your Cart"
-permalink: /cart/
+permalink: /Banana/cart/
 ---
 
 <style>
