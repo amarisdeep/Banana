@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ page.title }} | Art Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/Banana/assets/css/home.css">
     <link rel="icon" href="/Banana/assets/img/logo.png" type="image/x-icon">
     {% seo %}
 </head>
@@ -12,7 +12,7 @@
     <header>
         <nav>
             <ul>
-                <li class="logo"><a href="/">BANANA</a></li>
+                <li class="logo"><a href="/Banana/">BANANA</a></li>
                 <li>
                     <div class="search-container">
                         <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
@@ -24,11 +24,11 @@
                     <ul class="dropdown-menu">
                         {% assign collections = site.data.Art | map: 'collection' | uniq %}
                         {% for col in collections %}
-                        <li><a href="/collection/?collection={{ col | slugify }}">{{ col }}</a></li>
+                        <li><a href="/Banana/collection/?collection={{ col | slugify }}">{{ col }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="/Banana/cart">Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
@@ -53,8 +53,8 @@
 
     <footer>        
         <div class="footer-links">
-            <a class="linkhai" href="/">Instagram</a>
-            <a class="linkhai" href="/">Behance</a>
+            <a class="linkhai" href="/Banana">Instagram</a>
+            <a class="linkhai" href="/Banana">Behance</a>
         </div>
         <p class="copyright">© <script>document.write(new Date().getFullYear())</script>Banana Arts</p> 
         <p class="credit">Made By <a class="linkhai" href="https://amarisdeep.github.io">Amardeep</a></p>
